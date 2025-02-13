@@ -1,20 +1,28 @@
-const user = {
-    nom: "Doe",
-    prenom: "John",
-    address : {
-        rue: "27 av NY",
-        ville: "NY"
-       
-    }
-}
+import { features } from './model.js';
 
-for(let data in user){
-    if(user[data]!==user.address){
-        console.log(data+" "+user[data])
-    }
-    else{
-        for(data in user.address){
-            console.log(data+" "+user.address[data])
-        }
-    }
-}
+document.addEventListener("DOMContentLoaded", e => {
+    e.preventDefault();
+
+    features.btn_open.addEventListener("click", e => {
+        e.stopPropagation();
+        features.parent_target.classList.add("appear-modal");
+    });
+
+    features.btn_closed.addEventListener("click", e => {
+        e.stopPropagation();
+        features.parent_target.classList.remove("appear-modal");
+    });
+
+    features.closed.addEventListener("click", e => {
+        e.stopPropagation();
+        features.parent_target.classList.remove("appear-modal");
+    });
+
+    features.modal.addEventListener("click", e => {
+        e.stopPropagation();
+    });
+
+    document.addEventListener("click", () => {
+        features.parent_target.classList.remove("appear-modal");
+    });
+});

@@ -62,7 +62,7 @@ header h1 a{
 
 }
 /* appear modal */
-.appear-modal:target{
+.appear-modal{
     opacity: 1;
     z-index: 1;
 }
